@@ -564,6 +564,66 @@ video {
   );
 }
 
+.article-header {
+  background:
+    radial-gradient(
+      ellipse at 82% 22%,
+      color-mix(in srgb, var(--color-gold-deep) 7%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(to bottom, var(--color-bg-secondary), var(--color-bg));
+}
+
+.article-header::before {
+  position: absolute;
+  z-index: -1;
+  right: 7%;
+  bottom: 18%;
+  width: min(24rem, 42vw);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-gold) 24%, transparent)
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.article-lead-media {
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg),
+    color-mix(in srgb, var(--color-bg-secondary) 42%, var(--color-bg))
+  );
+}
+
+.article-reading-section::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 50%;
+  width: min(46rem, calc(100% - 2.5rem));
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in srgb, var(--color-border) 78%, transparent),
+    transparent
+  );
+  content: "";
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.article-footer-transition {
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg),
+    var(--color-bg-secondary)
+  );
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
