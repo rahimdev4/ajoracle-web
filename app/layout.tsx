@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
+
+import { Footer } from "@/components/layout/footer";
+import { Header } from "@/components/layout/header";
+
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -29,7 +33,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       lang="en"
       className={`${cormorantGaramond.variable} ${manrope.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

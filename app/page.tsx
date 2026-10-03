@@ -1,28 +1,19 @@
-import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { AppPromotion } from "@/components/home/app-promotion";
+import { FeaturedVideo } from "@/components/home/featured-video";
+import { Hero } from "@/components/home/hero";
+import { LatestRelease } from "@/components/home/latest-release";
+import { LatestStories } from "@/components/home/latest-stories";
+import { OraclePicks } from "@/components/home/oracle-picks";
 
 export default function Home() {
   return (
     <main>
-      <Section
-        aria-labelledby="foundation-heading"
-        className="flex min-h-dvh items-center"
-      >
-        <Container>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent">
-            Phase 0
-          </p>
-          <h1
-            id="foundation-heading"
-            className="max-w-max font-serif text-[clamp(4rem,14vw,8rem)] font-medium leading-[0.85] tracking-[-0.04em] text-copy"
-          >
-            AJOracle
-          </h1>
-          <p className="mt-6 text-sm text-copy-muted sm:text-base">
-            Website foundation
-          </p>
-        </Container>
-      </Section>
+      <Hero />
+      <LatestRelease />
+      <FeaturedVideo />
+      <OraclePicks />
+      <LatestStories />
+      <AppPromotion />
     </main>
   );
 }
