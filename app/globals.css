@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #07080b;
+  --color-bg-secondary: #0e1014;
+  --color-surface: #15171c;
+  --color-surface-elevated: #1c1e24;
+
+  --color-text: #f7f5f0;
+  --color-text-muted: #a7a7aa;
+
+  --color-gold: #ae8514;
+  --color-gold-highlight: #d4ac32;
+  --color-gold-deep: #7a5b0d;
+
+  --color-border: #2a261c;
+  --color-error: #e45858;
+  --color-success: #5fb878;
+
+  --font-editorial: var(--font-cormorant-garamond), "Cormorant Garamond",
+    Georgia, serif;
+  --font-ui: var(--font-manrope), Manrope, Arial, sans-serif;
+}
+
+@theme inline {
+  --color-page: var(--color-bg);
+  --color-page-secondary: var(--color-bg-secondary);
+  --color-panel: var(--color-surface);
+  --color-panel-elevated: var(--color-surface-elevated);
+  --color-copy: var(--color-text);
+  --color-copy-muted: var(--color-text-muted);
+  --color-accent: var(--color-gold);
+  --color-accent-highlight: var(--color-gold-highlight);
+  --color-accent-deep: var(--color-gold-deep);
+  --color-divider: var(--color-border);
+  --color-danger: var(--color-error);
+  --color-positive: var(--color-success);
+  --font-sans: var(--font-ui);
+  --font-serif: var(--font-editorial);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-bg);
+  color-scheme: dark;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-editorial);
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-gold-highlight);
+  color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-highlight);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
