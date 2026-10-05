@@ -67,8 +67,28 @@ export function SiteNavigation() {
     const previousOverflow = document.body.style.overflow;
     const previousPaddingRight = document.body.style.paddingRight;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const pageElements = Array.from(document.body.children).filter(
+      (element): element is HTMLElement =>
+        element instanceof HTMLElement &&
+        element.id !== "site-header" &&
+        element.tagName !== "SCRIPT",
+    );
+    const siteBrandLink = document.getElementById("site-brand-link");
+    const backgroundElements = siteBrandLink
+      ? [...pageElements, siteBrandLink]
+      : pageElements;
+    const backgroundStates = backgroundElements.map((element) => ({
+      element,
+      inert: element.inert,
+      ariaHidden: element.getAttribute("aria-hidden"),
+    }));
 
     document.body.style.overflow = "hidden";
+
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+      element.setAttribute("aria-hidden", "true");
+    });
 
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
@@ -119,6 +139,17 @@ export function SiteNavigation() {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
       document.body.style.paddingRight = previousPaddingRight;
+
+      backgroundStates.forEach(({ element, inert, ariaHidden }) => {
+        element.inert = inert;
+
+        if (ariaHidden === null) {
+          element.removeAttribute("aria-hidden");
+        } else {
+          element.setAttribute("aria-hidden", ariaHidden);
+        }
+      });
+
       header?.setAttribute("data-menu-open", "false");
       menuButton?.focus();
     };

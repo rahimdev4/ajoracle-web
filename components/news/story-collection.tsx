@@ -41,29 +41,31 @@ export function StoryCollection() {
         </div>
 
         <ol className="mt-16 grid gap-x-10 gap-y-16 sm:mt-20 sm:gap-y-20 lg:mt-24 lg:grid-cols-12 lg:gap-y-28 xl:gap-x-14">
-          <li className="grid gap-8 border-y border-divider/60 py-8 sm:gap-10 sm:py-10 lg:col-span-12 lg:grid-cols-12 lg:items-center lg:py-12">
-            <div className="lg:col-span-7 lg:col-start-6">
-              <MediaPlaceholder
-                tone="editorial"
-                label={collection.lead.imageLabel}
-                detail={collection.lead.imageDetail}
-                className="aspect-[4/3] w-full sm:aspect-[16/10]"
-              />
-            </div>
+          <li className="lg:col-span-12">
+            <article className="grid gap-8 border-y border-divider/60 py-8 sm:gap-10 sm:py-10 lg:grid-cols-12 lg:items-center lg:py-12">
+              <div className="lg:col-span-7 lg:col-start-6">
+                <MediaPlaceholder
+                  tone="editorial"
+                  label={collection.lead.imageLabel}
+                  detail={collection.lead.imageDetail}
+                  className="aspect-[4/3] w-full sm:aspect-[16/10]"
+                />
+              </div>
 
-            <article className="lg:col-span-4 lg:col-start-1 lg:row-start-1">
-              <p className="text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
-                {collection.lead.position}
-              </p>
-              <h3 className="mt-5 max-w-[15ch] font-serif text-[clamp(2.5rem,4.5vw,4rem)] leading-[0.92] tracking-[-0.03em] text-copy">
-                {collection.lead.label}
-              </h3>
-              <p className="mt-6 max-w-md text-sm leading-7 text-copy-muted">
-                {collection.lead.status}
-              </p>
-              <p className="mt-7 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
-                Article destination pending
-              </p>
+              <div className="lg:col-span-4 lg:col-start-1 lg:row-start-1">
+                <p className="text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
+                  {collection.lead.position}
+                </p>
+                <h3 className="mt-5 max-w-[15ch] font-serif text-[clamp(2.5rem,4.5vw,4rem)] leading-[0.92] tracking-[-0.03em] text-copy">
+                  {collection.lead.label}
+                </h3>
+                <p className="mt-6 max-w-md text-sm leading-7 text-copy-muted">
+                  {collection.lead.status}
+                </p>
+                <p className="mt-7 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
+                  Article destination pending
+                </p>
+              </div>
             </article>
           </li>
 

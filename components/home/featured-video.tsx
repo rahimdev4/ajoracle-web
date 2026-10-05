@@ -24,19 +24,13 @@ export function FeaturedVideo() {
           </p>
         </div>
 
-        <div className="group relative">
+        <div className="relative">
           <MediaPlaceholder
             tone="video"
             label="Featured video poster"
             detail="An approved poster or selected frame will replace this widescreen media area."
             className="aspect-[4/3] min-h-[20rem] w-full sm:aspect-video"
           />
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 top-1/2 z-20 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-copy/50 bg-page/75 text-copy backdrop-blur-sm transition-transform duration-300 group-hover:scale-105 sm:size-20"
-          >
-            <span className="ml-1 text-xl">▶</span>
-          </div>
           <span className="absolute right-4 top-4 z-20 bg-page/75 px-3 py-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted backdrop-blur-sm sm:right-6 sm:top-6">
             Preview unavailable
           </span>

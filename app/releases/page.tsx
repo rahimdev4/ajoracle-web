@@ -4,7 +4,7 @@ import { ReleasesIntro } from "@/components/releases/releases-intro";
 
 export default function ReleasesPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <ReleasesIntro />
       <FeaturedRelease />
       <ReleaseCollection />

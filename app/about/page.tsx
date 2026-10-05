@@ -6,7 +6,7 @@ import { LegacyStory } from "@/components/about/legacy-story";
 
 export default function AboutPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <AboutIntro />
       <ArtistStory />
       <CreativePerspective />

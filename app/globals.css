@@ -117,6 +117,34 @@ video {
   outline-offset: 4px;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--color-gold-highlight);
+  color: var(--color-bg);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transform: translateY(calc(-100% - 1rem));
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+  outline-color: var(--color-text);
+  transform: translateY(0);
+}
+
+#main-content {
+  scroll-margin-top: 5.5rem;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
 .home-hero {
   background:
     radial-gradient(

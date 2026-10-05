@@ -43,7 +43,7 @@ export function OraclePicks() {
           {oraclePicks.slots.map((pick, index) => (
             <li
               key={pick.id}
-              className={`group sm:last:col-span-2 lg:col-span-4 lg:last:col-span-4 ${
+              className={`sm:last:col-span-2 lg:col-span-4 lg:last:col-span-4 ${
                 index === 1 ? "lg:mt-16" : ""
               }`}
             >
@@ -51,7 +51,7 @@ export function OraclePicks() {
                 tone="release"
                 label={`${pick.label} artwork`}
                 detail="Approved curated artwork will replace this square."
-                className="aspect-square w-full transition-transform duration-500 group-hover:-translate-y-1"
+                className="aspect-square w-full"
               />
               <div className="mt-5 flex items-start justify-between gap-5 border-t border-divider/60 pt-4">
                 <div>
@@ -62,12 +62,6 @@ export function OraclePicks() {
                     {pick.status}
                   </p>
                 </div>
-                <span
-                  aria-hidden="true"
-                  className="grid size-10 shrink-0 place-items-center rounded-full border border-divider text-xs text-copy-muted"
-                >
-                  ▶
-                </span>
               </div>
             </li>
           ))}

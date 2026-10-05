@@ -34,6 +34,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
       className={`${cormorantGaramond.variable} ${manrope.variable}`}
     >
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <Header />
         {children}
         <Footer />

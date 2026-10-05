@@ -19,11 +19,11 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
                 return (
                   <p
                     key={block.id}
-                    className={`text-base leading-8 sm:text-[1.0625rem] sm:leading-9 ${
+                    className={
                       index === 0
-                        ? "text-lg text-copy sm:text-xl sm:leading-10"
-                        : "mt-8 text-copy-muted"
-                    }`}
+                        ? "text-lg leading-8 text-copy sm:text-xl sm:leading-9"
+                        : "mt-8 text-base leading-8 text-copy-muted sm:text-[1.0625rem] sm:leading-9"
+                    }
                   >
                     {block.text}
                   </p>

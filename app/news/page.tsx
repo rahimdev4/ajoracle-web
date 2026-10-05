@@ -4,7 +4,7 @@ import { StoryCollection } from "@/components/news/story-collection";
 
 export default function NewsPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <NewsIntro />
       <FeaturedStory />
       <StoryCollection />

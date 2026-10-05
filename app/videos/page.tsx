@@ -4,7 +4,7 @@ import { VideosIntro } from "@/components/videos/videos-intro";
 
 export default function VideosPage() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <VideosIntro />
       <FeaturedVideo />
       <VideoCollection />

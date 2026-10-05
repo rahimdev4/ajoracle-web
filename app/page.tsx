@@ -7,7 +7,7 @@ import { OraclePicks } from "@/components/home/oracle-picks";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <Hero />
       <LatestRelease />
       <FeaturedVideo />
