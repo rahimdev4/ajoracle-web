@@ -48,7 +48,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
         <ArticleEnding />
       </article>
 
-      <div aria-hidden="true" className="article-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

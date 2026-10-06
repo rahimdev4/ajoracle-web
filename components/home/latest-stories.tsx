@@ -42,7 +42,7 @@ export function LatestStories() {
               className="aspect-[4/3] w-full sm:aspect-[16/10]"
             />
             <div className="mt-5 grid gap-4 border-t border-divider/60 pt-5 sm:grid-cols-[auto_1fr] sm:gap-8">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-accent-highlight">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-highlight">
                 {latestStories.feature.label}
               </p>
               <h3 className="max-w-[20ch] font-serif text-[clamp(2rem,4vw,3.25rem)] leading-[0.95] tracking-[-0.025em] text-copy sm:justify-self-end sm:text-right">
@@ -60,7 +60,7 @@ export function LatestStories() {
                   detail="Approved story imagery pending."
                   className="aspect-[16/9] w-full"
                 />
-                <p className="mt-5 text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-accent-highlight">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-accent-highlight">
                   {story.label}
                 </p>
                 <h3 className="mt-3 max-w-[20ch] font-serif text-[clamp(1.75rem,3vw,2.25rem)] leading-[1.02] tracking-[-0.02em] text-copy">

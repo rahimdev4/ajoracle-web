@@ -6,7 +6,7 @@ export default function ContactPage() {
     <main id="main-content" tabIndex={-1}>
       <ContactIntro />
       <ContactForm />
-      <div aria-hidden="true" className="contact-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

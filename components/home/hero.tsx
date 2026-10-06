@@ -14,7 +14,7 @@ export function Hero() {
     >
       <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5 lg:pb-8">
-          <p className="mb-6 text-[0.6875rem] font-semibold uppercase tracking-[0.26em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow mb-6 tracking-[0.26em]">
             {hero.eyebrow}
           </p>
           <h1

@@ -13,7 +13,7 @@ export function AppPromotion() {
     >
       <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
-          <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow mb-5 tracking-[0.24em]">
             {appPromotion.eyebrow}
           </p>
           <h2
@@ -25,7 +25,7 @@ export function AppPromotion() {
           <p className="mt-7 max-w-[34rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
             {appPromotion.description}
           </p>
-          <p className="mt-7 inline-flex border border-divider/80 px-4 py-3 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
+          <p className="mt-7 inline-flex border border-divider/80 px-4 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-copy-muted">
             Store links pending confirmation
           </p>
         </div>

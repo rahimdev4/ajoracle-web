@@ -13,10 +13,10 @@ export function FeaturedRelease() {
     >
       <Container>
         <div className="mb-12 flex items-center justify-between gap-6 border-b border-divider/60 pb-5 sm:mb-16">
-          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow tracking-[0.24em]">
             {featured.eyebrow}
           </p>
-          <span className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-copy-muted">
             01 / Current feature
           </span>
         </div>
@@ -34,7 +34,7 @@ export function FeaturedRelease() {
             </p>
 
             <div className="mt-10 border-y border-divider/60 py-5">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copy-muted">
                 Availability
               </p>
               <p className="mt-2 text-sm leading-6 text-copy">

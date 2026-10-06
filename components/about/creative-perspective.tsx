@@ -13,7 +13,7 @@ export function CreativePerspective() {
     >
       <Container className="relative z-10 grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-16">
         <div className="lg:col-span-5 lg:pl-8 xl:pl-14">
-          <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow mb-5 tracking-[0.24em]">
             {creativePerspective.eyebrow}
           </p>
           <h2

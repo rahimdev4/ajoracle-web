@@ -16,7 +16,7 @@ export function SectionHeading({
   return (
     <div className={className}>
       <div className="mb-5 flex items-center gap-4 sm:mb-6">
-        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+        <p className="eyebrow tracking-[0.24em]">
           {eyebrow}
         </p>
         <span aria-hidden="true" className="h-px w-10 bg-accent/70 sm:w-16" />

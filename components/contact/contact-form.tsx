@@ -12,7 +12,7 @@ export function ContactForm() {
     >
       <Container className="relative z-10 grid gap-16 lg:grid-cols-12 lg:gap-10 xl:gap-16">
         <div className="lg:col-span-5 lg:pt-10">
-          <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow mb-5 tracking-[0.24em]">
             {composition.eyebrow}
           </p>
           <h2
@@ -41,7 +41,7 @@ export function ContactForm() {
             aria-describedby="contact-form-description contact-form-status"
           >
             <div className="border-b border-divider/70 pb-8 sm:pb-10">
-              <p className="mb-4 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-accent-highlight sm:text-xs">
+              <p className="eyebrow mb-4 tracking-[0.22em]">
                 {form.eyebrow}
               </p>
               <h3

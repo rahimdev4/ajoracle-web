@@ -8,7 +8,7 @@ export default function NewsPage() {
       <NewsIntro />
       <FeaturedStory />
       <StoryCollection />
-      <div aria-hidden="true" className="news-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

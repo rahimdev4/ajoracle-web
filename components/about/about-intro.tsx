@@ -13,7 +13,7 @@ export function AboutIntro() {
       <Container className="relative z-10 grid items-center gap-14 lg:grid-cols-12 lg:gap-12 xl:gap-16">
         <div className="lg:col-span-5 lg:pb-8">
           <div className="mb-6 flex items-center gap-4">
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.26em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow tracking-[0.26em]">
               {intro.eyebrow}
             </p>
             <span aria-hidden="true" className="h-px w-12 bg-accent/65" />

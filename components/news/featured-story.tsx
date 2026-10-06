@@ -13,7 +13,7 @@ export function FeaturedStory() {
     >
       <Container className="relative z-10">
         <div className="mb-12 flex items-center justify-between gap-6 border-b border-divider/60 pb-5 sm:mb-16">
-          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow tracking-[0.24em]">
             {featured.eyebrow}
           </p>
           <p className="text-right text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
@@ -32,7 +32,7 @@ export function FeaturedStory() {
           </div>
 
           <div className="lg:col-span-4 lg:pb-3">
-            <p className="mb-5 text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
+            <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-accent-highlight">
               01
             </p>
             <h2

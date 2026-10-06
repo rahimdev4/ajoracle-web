@@ -12,7 +12,7 @@ export default function AboutPage() {
       <CreativePerspective />
       <LegacyStory />
       <AboutClosing />
-      <div aria-hidden="true" className="about-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

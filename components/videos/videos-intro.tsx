@@ -11,7 +11,7 @@ export function VideosIntro() {
     >
       <Container className="relative z-10 grid gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
-          <p className="mb-6 text-[0.6875rem] font-semibold uppercase tracking-[0.26em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow mb-6 tracking-[0.26em]">
             {intro.eyebrow}
           </p>
           <h1

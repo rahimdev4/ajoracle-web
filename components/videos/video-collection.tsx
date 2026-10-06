@@ -29,7 +29,7 @@ export function VideoCollection() {
       <Container className="relative z-10">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow mb-5 tracking-[0.24em]">
               {collection.eyebrow}
             </p>
             <h2
@@ -46,7 +46,7 @@ export function VideoCollection() {
 
         <ol className="mt-16 divide-y divide-divider/60 border-y border-divider/60 sm:mt-20 lg:mt-24">
           {collection.slots.map((video, index) => {
-            const layout = videoLayouts[index];
+            const layout = videoLayouts[index % videoLayouts.length];
 
             return (
               <li
@@ -63,7 +63,7 @@ export function VideoCollection() {
                 </div>
 
                 <div className={layout.copy}>
-                  <p className="text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
+                  <p className="text-xs font-semibold tracking-[0.18em] text-accent-highlight">
                     {video.position}
                   </p>
                   <h3 className="mt-4 max-w-[15ch] font-serif text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[-0.025em] text-copy">

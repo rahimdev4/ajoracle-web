@@ -12,7 +12,7 @@ export function ReleasesIntro() {
       <Container className="relative z-10 grid items-end gap-10 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <div className="mb-6 flex items-center gap-4">
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.26em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow tracking-[0.26em]">
               {intro.eyebrow}
             </p>
             <span aria-hidden="true" className="h-px w-12 bg-accent/65 sm:w-20" />

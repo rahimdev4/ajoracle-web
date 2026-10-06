@@ -13,7 +13,7 @@ export function FooterContactCallout() {
   return (
     <div className="grid gap-8 py-20 sm:py-24 lg:grid-cols-12 lg:items-end lg:py-28">
       <div className="lg:col-span-8">
-        <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+        <p className="eyebrow mb-5 tracking-[0.24em]">
           Contact
         </p>
         <h2 className="max-w-[12ch] font-serif text-[clamp(3.25rem,7vw,6rem)] font-medium leading-[0.86] tracking-[-0.04em] text-copy">

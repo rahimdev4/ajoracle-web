@@ -14,7 +14,7 @@ export function LegacyStory() {
       <Container className="relative z-10">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow mb-5 tracking-[0.24em]">
               {legacy.eyebrow}
             </p>
             <h2

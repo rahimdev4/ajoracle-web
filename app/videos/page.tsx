@@ -8,7 +8,7 @@ export default function VideosPage() {
       <VideosIntro />
       <FeaturedVideo />
       <VideoCollection />
-      <div aria-hidden="true" className="videos-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

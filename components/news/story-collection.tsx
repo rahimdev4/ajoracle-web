@@ -25,7 +25,7 @@ export function StoryCollection() {
       <Container className="relative z-10">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow mb-5 tracking-[0.24em]">
               {collection.eyebrow}
             </p>
             <h2
@@ -53,7 +53,7 @@ export function StoryCollection() {
               </div>
 
               <div className="lg:col-span-4 lg:col-start-1 lg:row-start-1">
-                <p className="text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
+                <p className="text-xs font-semibold tracking-[0.18em] text-accent-highlight">
                   {collection.lead.position}
                 </p>
                 <h3 className="mt-5 max-w-[15ch] font-serif text-[clamp(2.5rem,4.5vw,4rem)] leading-[0.92] tracking-[-0.03em] text-copy">
@@ -70,7 +70,8 @@ export function StoryCollection() {
           </li>
 
           {collection.secondary.map((story, index) => {
-            const layout = secondaryStoryLayouts[index];
+            const layout =
+              secondaryStoryLayouts[index % secondaryStoryLayouts.length];
 
             return (
               <li key={story.id} className={layout.item}>
@@ -82,7 +83,7 @@ export function StoryCollection() {
                     className={`${layout.media} w-full`}
                   />
                   <div className="mt-6 grid grid-cols-[auto_1fr] gap-5 border-t border-divider/60 pt-5 sm:gap-7">
-                    <p className="text-[0.6875rem] font-semibold tracking-[0.18em] text-accent-highlight">
+                    <p className="text-xs font-semibold tracking-[0.18em] text-accent-highlight">
                       {story.position}
                     </p>
                     <div>

@@ -8,7 +8,7 @@ export default function ReleasesPage() {
       <ReleasesIntro />
       <FeaturedRelease />
       <ReleaseCollection />
-      <div aria-hidden="true" className="releases-footer-transition h-24 sm:h-32" />
+      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }

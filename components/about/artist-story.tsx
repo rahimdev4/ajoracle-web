@@ -13,7 +13,7 @@ export function ArtistStory() {
     >
       <Container className="relative z-10">
         <div className="mb-12 flex items-center justify-between gap-6 border-b border-divider/60 pb-5 sm:mb-16">
-          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+          <p className="eyebrow tracking-[0.24em]">
             {artistStory.eyebrow}
           </p>
           <p className="text-right text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">

@@ -117,6 +117,14 @@ video {
   outline-offset: 4px;
 }
 
+.eyebrow {
+  color: var(--color-gold-highlight);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1rem;
+  text-transform: uppercase;
+}
+
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -420,7 +428,13 @@ video {
   pointer-events: none;
 }
 
-.releases-footer-transition {
+@media (min-width: 64rem) {
+  .release-collection-item {
+    grid-row-start: var(--release-row-start);
+  }
+}
+
+.footer-transition {
   background: linear-gradient(
     to bottom,
     var(--color-bg),
@@ -502,14 +516,6 @@ video {
   pointer-events: none;
 }
 
-.videos-footer-transition {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg),
-    var(--color-bg-secondary)
-  );
-}
-
 .news-intro {
   background:
     radial-gradient(
@@ -584,14 +590,6 @@ video {
   pointer-events: none;
 }
 
-.news-footer-transition {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg),
-    var(--color-bg-secondary)
-  );
-}
-
 .article-header {
   background:
     radial-gradient(
@@ -642,14 +640,6 @@ video {
   content: "";
   transform: translateX(-50%);
   pointer-events: none;
-}
-
-.article-footer-transition {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg),
-    var(--color-bg-secondary)
-  );
 }
 
 .about-intro {
@@ -746,14 +736,6 @@ video {
   border-radius: 999px;
   content: "";
   pointer-events: none;
-}
-
-.about-footer-transition {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg),
-    var(--color-bg-secondary)
-  );
 }
 
 .contact-intro {
@@ -881,14 +863,6 @@ video {
 .contact-form-message {
   min-height: 11rem;
   resize: vertical;
-}
-
-.contact-footer-transition {
-  background: linear-gradient(
-    to bottom,
-    var(--color-bg),
-    var(--color-bg-secondary)
-  );
 }
 
 .site-header {

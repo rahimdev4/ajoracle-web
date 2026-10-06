@@ -12,7 +12,7 @@ export function AboutClosing() {
       <Container className="relative z-10">
         <div className="grid gap-10 border-y border-divider/60 py-12 sm:py-16 lg:grid-cols-12 lg:items-end lg:py-20">
           <div className="lg:col-span-8">
-            <p className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow mb-5 tracking-[0.24em]">
               {closing.eyebrow}
             </p>
             <h2

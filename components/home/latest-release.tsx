@@ -29,7 +29,7 @@ export function LatestRelease() {
 
         <div className="lg:col-span-5 lg:col-start-8">
           <div className="mb-6 flex items-center gap-4">
-            <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+            <p className="eyebrow tracking-[0.24em]">
               {latestRelease.eyebrow}
             </p>
             <span aria-hidden="true" className="h-px w-12 bg-accent/70" />

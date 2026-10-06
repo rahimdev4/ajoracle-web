@@ -15,7 +15,7 @@ export function FeaturedVideo() {
         <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <div className="mb-5 flex items-center gap-4">
-              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.24em] text-accent-highlight sm:text-xs">
+              <p className="eyebrow tracking-[0.24em]">
                 {featured.eyebrow}
               </p>
               <span aria-hidden="true" className="h-px w-12 bg-accent/65 sm:w-20" />
@@ -49,7 +49,7 @@ export function FeaturedVideo() {
             16:9 featured media position
           </p>
           <div className="sm:justify-self-end sm:text-right">
-            <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copy-muted">
               Availability
             </p>
             <p className="mt-2 text-sm text-copy">{featured.availability}</p>
