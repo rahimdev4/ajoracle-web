@@ -244,6 +244,16 @@ video {
   }
 }
 
+.latest-release-section {
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 40rem) {
+  .latest-release-section {
+    padding-bottom: 6.5rem;
+  }
+}
+
 @media (min-width: 64rem) {
   .home-hero {
     background-position: 25% center;
@@ -282,6 +292,18 @@ video {
         color-mix(in srgb, var(--color-bg) 30%, transparent),
         transparent 13%
       );
+  }
+}
+
+@media (min-width: 64rem) {
+  .latest-release-section {
+    padding-block: 7rem 6rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .latest-release-section {
+    padding-block: 7.5rem 6.5rem;
   }
 }
 

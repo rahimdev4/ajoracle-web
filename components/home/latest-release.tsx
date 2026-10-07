@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { homepageContent } from "@/components/home/homepage-content";
-import { MediaPlaceholder } from "@/components/home/media-placeholder";
+import { ReleaseAudioPlayer } from "@/components/home/release-audio-player";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 
@@ -11,54 +12,59 @@ export function LatestRelease() {
   return (
     <Section
       aria-labelledby="latest-release-title"
-      className="relative overflow-hidden bg-page-secondary/45"
+      className="latest-release-section relative overflow-hidden bg-page"
     >
-      <Container className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-16">
-        <div className="relative lg:col-span-6 xl:col-span-5">
-          <div
-            aria-hidden="true"
-            className="absolute -inset-5 border border-divider/20 sm:-inset-8"
-          />
-          <MediaPlaceholder
-            tone="release"
-            label="Latest release artwork"
-            detail="Square approved artwork will be placed here."
-            className="relative aspect-square w-full"
-          />
-        </div>
-
-        <div className="lg:col-span-5 lg:col-start-8">
-          <div className="mb-6 flex items-center gap-4">
+      <Container className="grid items-start gap-y-8 sm:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-x-[clamp(3rem,5vw,5rem)] lg:gap-y-0">
+        <div className="contents lg:col-start-2 lg:row-start-1 lg:block lg:self-center">
+          <div className="order-1 mb-2 flex items-center gap-4 lg:mb-0">
             <p className="eyebrow tracking-[0.24em]">
               {latestRelease.eyebrow}
             </p>
-            <span aria-hidden="true" className="h-px w-12 bg-accent/70" />
-          </div>
-          <h2
-            id="latest-release-title"
-            className="max-w-[12ch] font-serif text-[clamp(3rem,6vw,5.25rem)] font-medium leading-[0.88] tracking-[-0.04em] text-copy"
-          >
-            {latestRelease.title}
-          </h2>
-          <p className="mt-7 max-w-[34rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
-            {latestRelease.description}
-          </p>
-          <Link
-            href={latestRelease.action.href}
-            className="group mt-9 inline-flex min-h-11 items-center gap-3 border-b border-accent/80 py-2 text-sm font-semibold text-copy transition-colors duration-300 hover:text-accent-highlight"
-          >
-            {latestRelease.action.label}
             <span
               aria-hidden="true"
-              className="transition-transform duration-300 group-hover:translate-x-1"
+              className="h-px w-16 bg-accent/60 sm:w-24"
+            />
+          </div>
+
+          <div className="order-3 lg:mt-8">
+            <h2
+              id="latest-release-title"
+              className="pb-3 font-serif text-[clamp(3.5rem,13vw,4.5rem)] font-medium leading-[0.96] tracking-[-0.035em] text-copy lg:text-[clamp(4.5rem,5.8vw,5.375rem)]"
             >
-              →
-            </span>
-          </Link>
-          <p className="mt-8 border-l border-divider pl-4 text-xs leading-6 text-copy-muted">
-            Listening links will appear only after their destinations are
-            confirmed.
-          </p>
+              {latestRelease.title}
+            </h2>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-copy-muted sm:text-sm">
+              By {latestRelease.artist}
+            </p>
+            <p className="mt-8 max-w-[42ch] text-base leading-[2.125rem] text-copy-muted sm:text-lg lg:leading-8">
+              {latestRelease.description}
+            </p>
+
+            <ReleaseAudioPlayer releaseTitle={latestRelease.title} />
+
+            <Link
+              href={latestRelease.action.href}
+              className="group mt-7 inline-flex min-h-11 items-center gap-3 border-b border-accent/70 py-2 text-sm font-semibold text-copy transition-colors duration-300 hover:border-accent-highlight hover:text-accent-highlight"
+            >
+              {latestRelease.action.label}
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative order-2 aspect-square w-full max-w-[35rem] justify-self-center lg:col-start-1 lg:row-start-1 lg:justify-self-start">
+          <Image
+            src={latestRelease.artwork.src}
+            alt={latestRelease.artwork.alt}
+            fill
+            sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, (min-width: 640px) 560px, calc(100vw - 2.5rem)"
+            className="object-contain"
+          />
         </div>
       </Container>
     </Section>

@@ -21,6 +21,11 @@ type HomepageContent = Readonly<{
   latestRelease: {
     eyebrow: string;
     title: string;
+    artist: string;
+    artwork: {
+      src: string;
+      alt: string;
+    };
     description: string;
     action: InternalAction;
   };
@@ -52,8 +57,8 @@ type HomepageContent = Readonly<{
   };
 }>;
 
-// Phase 1 visual-shell copy only. Content-dependent areas are intentionally
-// labeled as placeholders until approved CMS content and media are available.
+// Static homepage presentation data. Fields awaiting CMS or client approval
+// are identified locally so verified content is not mistaken for placeholder copy.
 export const homepageContent = {
   hero: {
     eyebrow: "Music · Faith · Inspiration",
@@ -67,9 +72,15 @@ export const homepageContent = {
   },
   latestRelease: {
     eyebrow: "Latest Release",
-    title: "Approved release content pending",
+    title: "Prayer",
+    artist: "AJOracle",
+    artwork: {
+      src: "/images/home/latest-release/prayer.webp",
+      alt: "Prayer by AJOracle release artwork",
+    },
+    // Temporary, unverified editorial copy pending final client approval.
     description:
-      "This space is reserved for the latest approved release, its story, and confirmed listening destinations.",
+      "A song of faith, surrender, and hope. Prayer is a reminder that even in the quiet moments, we are never alone.",
     action: { href: "/releases", label: "Explore releases" },
   },
   featuredVideo: {
