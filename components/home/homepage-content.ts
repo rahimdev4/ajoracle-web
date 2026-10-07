@@ -32,7 +32,12 @@ type HomepageContent = Readonly<{
   featuredVideo: {
     eyebrow: string;
     title: string;
-    description: string;
+    artist: string;
+    poster: {
+      src: string;
+      alt: string;
+    };
+    videoId: string;
     action: InternalAction;
   };
   oraclePicks: {
@@ -85,9 +90,13 @@ export const homepageContent = {
   },
   featuredVideo: {
     eyebrow: "Featured Video",
-    title: "Approved video selection pending",
-    description:
-      "The featured title, poster, and viewing destination will be added with approved video content.",
+    title: "Great Is Thy Faithfulness",
+    artist: "AJOracle",
+    poster: {
+      src: "/images/home/featured-video/great-is-thy-faithfulness.webp",
+      alt: "Sunset over a mountain lake, featured visual for Great Is Thy Faithfulness by AJOracle",
+    },
+    videoId: "pgegvwDMcyo",
     action: { href: "/videos", label: "Explore videos" },
   },
   oraclePicks: {

@@ -12,7 +12,7 @@ export function LatestRelease() {
   return (
     <Section
       aria-labelledby="latest-release-title"
-      className="latest-release-section relative overflow-hidden bg-page"
+      className="latest-release-section relative overflow-hidden bg-page-secondary"
     >
       <Container className="grid items-start gap-y-8 sm:gap-y-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-x-[clamp(3rem,5vw,5rem)] lg:gap-y-0">
         <div className="contents lg:col-start-2 lg:row-start-1 lg:block lg:self-center">
