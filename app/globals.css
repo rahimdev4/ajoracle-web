@@ -154,48 +154,135 @@ video {
 }
 
 .home-hero {
-  background:
-    radial-gradient(
-      circle at 82% 34%,
-      color-mix(in srgb, var(--color-gold-deep) 18%, transparent),
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 14% 72%,
-      color-mix(in srgb, var(--color-surface-elevated) 54%, transparent),
-      transparent 36%
-    ),
-    linear-gradient(120deg, var(--color-bg), var(--color-bg-secondary) 72%);
+  background-color: var(--color-bg);
+  background-image: url("/images/home/hero/ajoracle-hero-background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .home-hero::before,
 .home-hero::after {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   content: "";
   pointer-events: none;
 }
 
 .home-hero::before {
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 58%,
-    color-mix(in srgb, var(--color-bg) 88%, transparent) 92%,
-    var(--color-bg)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgb(7 8 11 / 72%) 0%,
+      rgb(7 8 11 / 68%) 34%,
+      rgb(7 8 11 / 56%) 54%,
+      rgb(7 8 11 / 42%) 76%,
+      rgb(7 8 11 / 58%) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgb(7 8 11 / 42%) 0%,
+      rgb(7 8 11 / 18%) 48%,
+      rgb(7 8 11 / 40%) 76%,
+      var(--color-bg) 100%
+    );
 }
 
 .home-hero::after {
-  top: 12%;
-  right: -14rem;
-  width: min(50rem, 68vw);
-  aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--color-gold) 18%, transparent);
-  border-radius: 999px;
-  box-shadow:
-    0 0 0 4rem color-mix(in srgb, var(--color-gold-deep) 3%, transparent),
-    0 0 0 9rem color-mix(in srgb, var(--color-gold-deep) 2%, transparent);
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 58% 44%,
+      transparent 40%,
+      rgb(7 8 11 / 12%) 80%,
+      rgb(7 8 11 / 28%) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 58%,
+      color-mix(in srgb, var(--color-bg) 35%, transparent) 74%,
+      color-mix(in srgb, var(--color-bg) 88%, transparent) 92%,
+      var(--color-bg)
+    );
+}
+
+.home-hero__layout {
+  padding-block: 3rem 4rem;
+}
+
+.home-hero__portrait::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      var(--color-bg) 0%,
+      color-mix(in srgb, var(--color-bg) 58%, transparent) 11%,
+      transparent 28%
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-bg) 72%, transparent),
+      transparent 15%,
+      transparent 91%,
+      color-mix(in srgb, var(--color-bg) 34%, transparent)
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-bg) 28%, transparent),
+      transparent 10%
+    );
+  content: "";
+  pointer-events: none;
+}
+
+@media (min-width: 40rem) {
+  .home-hero__layout {
+    padding-block: 3.5rem 4.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .home-hero {
+    background-position: 25% center;
+    background-size: cover;
+  }
+
+  .home-hero__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(31rem, 37.5rem);
+    column-gap: clamp(2.5rem, 4vw, 5rem);
+    min-height: clamp(41rem, calc(100svh - 7.5rem), 43.5rem);
+    padding-block: 1.75rem;
+  }
+
+  .home-hero__portrait::after {
+    background:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-bg) 92%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg) 58%, transparent) 7%,
+        color-mix(in srgb, var(--color-bg) 18%, transparent) 17%,
+        transparent 24%
+      ),
+      linear-gradient(
+        to top,
+        var(--color-bg) 0%,
+        color-mix(in srgb, var(--color-bg) 46%, transparent) 10%,
+        transparent 23%
+      ),
+      linear-gradient(
+        to left,
+        color-mix(in srgb, var(--color-bg) 28%, transparent),
+        transparent 10%
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-bg) 30%, transparent),
+        transparent 13%
+      );
+  }
 }
 
 .media-placeholder {

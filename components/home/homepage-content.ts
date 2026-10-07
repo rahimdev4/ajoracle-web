@@ -13,8 +13,10 @@ type HomepageContent = Readonly<{
   hero: {
     eyebrow: string;
     title: string;
+    role: string;
     description: string;
-    action: InternalAction;
+    primaryAction: InternalAction;
+    secondaryAction: InternalAction;
   };
   latestRelease: {
     eyebrow: string;
@@ -54,11 +56,14 @@ type HomepageContent = Readonly<{
 // labeled as placeholders until approved CMS content and media are available.
 export const homepageContent = {
   hero: {
-    eyebrow: "Music · Video · Stories",
+    eyebrow: "Music · Faith · Inspiration",
     title: "AJOracle",
+    role: "Singer · Songwriter · Creator",
+    // Temporary visual-shell copy; replace only with approved production copy.
     description:
       "A new digital home for AJOracle music, visual work, and stories.",
-    action: { href: "/releases", label: "Explore releases" },
+    primaryAction: { href: "/releases", label: "Explore Music" },
+    secondaryAction: { href: "/videos", label: "Watch Latest Video" },
   },
   latestRelease: {
     eyebrow: "Latest Release",
