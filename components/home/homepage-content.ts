@@ -9,6 +9,17 @@ type PlaceholderSlot = Readonly<{
   status: string;
 }>;
 
+type OraclePick = Readonly<{
+  id: string;
+  title: string;
+  artist: string;
+  artwork: {
+    src: string;
+    alt: string;
+  };
+  audioSrc: string | null;
+}>;
+
 type HomepageContent = Readonly<{
   hero: {
     eyebrow: string;
@@ -43,9 +54,11 @@ type HomepageContent = Readonly<{
   oraclePicks: {
     eyebrow: string;
     title: string;
-    description: string;
+    background: {
+      src: string;
+    };
     action: InternalAction;
-    slots: readonly PlaceholderSlot[];
+    picks: readonly OraclePick[];
   };
   latestStories: {
     eyebrow: string;
@@ -102,24 +115,40 @@ export const homepageContent = {
   oraclePicks: {
     eyebrow: "Oracle Picks",
     title: "A place for considered selections",
-    description:
-      "The final curated titles, artwork, and listening links will come from approved content.",
+    background: {
+      src: "/images/home/oracle-picks/oracle-picks-background.webp",
+    },
     action: { href: "/releases", label: "View all releases" },
-    slots: [
+    picks: [
       {
-        id: "oracle-pick-01",
-        label: "Oracle Pick 01",
-        status: "Title and artwork pending approval",
+        id: "i-am-that-i-am",
+        title: "I Am That I Am",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/home/oracle-picks/i-am-that-i-am.webp",
+          alt: "I Am That I Am by AJOracle artwork",
+        },
+        audioSrc: null,
       },
       {
-        id: "oracle-pick-02",
-        label: "Oracle Pick 02",
-        status: "Title and artwork pending approval",
+        id: "fall-into-your-hands",
+        title: "Fall Into Your Hands",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/home/oracle-picks/fall-into-your-hands.webp",
+          alt: "Fall Into Your Hands by AJOracle artwork",
+        },
+        audioSrc: null,
       },
       {
-        id: "oracle-pick-03",
-        label: "Oracle Pick 03",
-        status: "Title and artwork pending approval",
+        id: "father-hear-us",
+        title: "Father Hear Us",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/home/oracle-picks/father-hear-us.webp",
+          alt: "Father Hear Us by AJOracle artwork",
+        },
+        audioSrc: null,
       },
     ],
   },
