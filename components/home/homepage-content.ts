@@ -14,6 +14,40 @@ type OraclePick = Readonly<{
   audioSrc: string | null;
 }>;
 
+export type AppStoreDestination = Readonly<{
+  platform: "App Store" | "Google Play";
+  shortLabel: "iOS" | "Android";
+  status: "Coming soon";
+  href: string | null;
+  qrCode: Readonly<{
+    src: string;
+    alt: string;
+  }> | null;
+}>;
+
+type AppStoreDestinations = Readonly<{
+  ios: AppStoreDestination | null;
+  android: AppStoreDestination | null;
+}>;
+
+const appStoreDestinations: AppStoreDestinations = {
+  // Add verified store URLs and their matching approved QR assets together.
+  ios: {
+    platform: "App Store",
+    shortLabel: "iOS",
+    status: "Coming soon",
+    href: null,
+    qrCode: null,
+  },
+  android: {
+    platform: "Google Play",
+    shortLabel: "Android",
+    status: "Coming soon",
+    href: null,
+    qrCode: null,
+  },
+};
+
 type HomepageContent = Readonly<{
   hero: {
     eyebrow: string;
@@ -62,8 +96,22 @@ type HomepageContent = Readonly<{
   };
   appPromotion: {
     eyebrow: string;
-    title: string;
+    title: {
+      lead: string;
+      accent: string;
+    };
     description: string;
+    status: string;
+    background: {
+      src: string;
+    };
+    phone: {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+    };
+    storeDestinations: AppStoreDestinations;
   };
 }>;
 
@@ -152,9 +200,23 @@ export const homepageContent = {
     action: { href: "/news", label: "View all stories" },
   },
   appPromotion: {
-    eyebrow: "AJOracle Mobile",
-    title: "The AJOracle experience, made for mobile",
+    eyebrow: "The AJOracle App",
+    title: {
+      lead: "Take the music",
+      accent: "with you.",
+    },
     description:
-      "Approved app screens and confirmed store destinations will be added when they are ready.",
+      "The AJOracle mobile experience is on its way, bringing the music and stories closer to you. A new way to experience AJOracle, wherever you are.",
+    status: "Coming soon",
+    background: {
+      src: "/images/home/app-promotion/app-promotion-background.webp",
+    },
+    phone: {
+      src: "/images/home/app-promotion/app-phone-mockup.svg",
+      alt: "AJOracle mobile app shown on a phone",
+      width: 904,
+      height: 980,
+    },
+    storeDestinations: appStoreDestinations,
   },
 } as const satisfies HomepageContent;
