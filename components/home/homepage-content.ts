@@ -3,12 +3,6 @@ type InternalAction = Readonly<{
   label: string;
 }>;
 
-type PlaceholderSlot = Readonly<{
-  id: string;
-  label: string;
-  status: string;
-}>;
-
 type OraclePick = Readonly<{
   id: string;
   title: string;
@@ -65,8 +59,6 @@ type HomepageContent = Readonly<{
     title: string;
     description: string;
     action: InternalAction;
-    feature: PlaceholderSlot;
-    supporting: readonly PlaceholderSlot[];
   };
   appPromotion: {
     eyebrow: string;
@@ -156,25 +148,8 @@ export const homepageContent = {
     eyebrow: "Latest Stories",
     title: "Notes, news, and moments",
     description:
-      "An editorial home for approved AJOracle stories, with a clear feature and supporting updates.",
-    action: { href: "/news", label: "View all news" },
-    feature: {
-      id: "feature-story",
-      label: "Feature story",
-      status: "Story title and imagery pending approval",
-    },
-    supporting: [
-      {
-        id: "supporting-story-01",
-        label: "Supporting story 01",
-        status: "Story title and imagery pending approval",
-      },
-      {
-        id: "supporting-story-02",
-        label: "Supporting story 02",
-        status: "Story title and imagery pending approval",
-      },
-    ],
+      "Stories, reflections, and the moments behind the music.",
+    action: { href: "/news", label: "View all stories" },
   },
   appPromotion: {
     eyebrow: "AJOracle Mobile",

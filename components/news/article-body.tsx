@@ -1,11 +1,31 @@
 import { Container } from "@/components/layout/container";
-import type { ArticleBodyBlock } from "@/components/news/article-content";
+import type {
+  ArticleBodyBlock,
+  ArticleInline,
+} from "@/lib/news/articles";
 
 type ArticleBodyProps = Readonly<{
   blocks: readonly ArticleBodyBlock[];
 }>;
 
 export function ArticleBody({ blocks }: ArticleBodyProps) {
+  function renderInline(segment: ArticleInline, index: number) {
+    const key = `${segment.type}-${index}`;
+
+    switch (segment.type) {
+      case "strong":
+        return (
+          <strong key={key} className="font-semibold text-copy">
+            {segment.text}
+          </strong>
+        );
+      case "emphasis":
+        return <em key={key}>{segment.text}</em>;
+      default:
+        return <span key={key}>{segment.text}</span>;
+    }
+  }
+
   return (
     <section
       aria-label="Article content"
@@ -16,16 +36,19 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
           {blocks.map((block, index) => {
             switch (block.type) {
               case "paragraph":
+                const followsHeading =
+                  index > 0 && blocks[index - 1].type === "heading";
+
                 return (
                   <p
                     key={block.id}
                     className={
                       index === 0
-                        ? "text-lg leading-8 text-copy sm:text-xl sm:leading-9"
-                        : "mt-8 text-base leading-8 text-copy-muted sm:text-[1.0625rem] sm:leading-9"
+                        ? "text-[1.0625rem] leading-[1.85] text-copy-muted sm:text-lg sm:leading-[1.8]"
+                        : `${followsHeading ? "mt-6" : "mt-7 sm:mt-8"} text-[1.0625rem] leading-[1.85] text-copy-muted sm:text-lg sm:leading-[1.8]`
                     }
                   >
-                    {block.text}
+                    {block.content.map(renderInline)}
                   </p>
                 );
 
@@ -33,23 +56,12 @@ export function ArticleBody({ blocks }: ArticleBodyProps) {
                 return (
                   <h2
                     key={block.id}
-                    className="mt-16 max-w-[16ch] font-serif text-[clamp(2.5rem,5vw,3.75rem)] font-medium leading-[0.92] tracking-[-0.03em] text-copy sm:mt-20"
+                    className="mt-14 max-w-[16ch] font-serif text-[1.625rem] font-medium leading-[1.2] tracking-[-0.03em] text-copy sm:mt-16 sm:text-[1.875rem]"
                   >
                     {block.text}
                   </h2>
                 );
 
-              case "quote":
-                return (
-                  <blockquote
-                    key={block.id}
-                    className="my-14 border-y border-divider/60 py-8 sm:my-20 sm:px-8 sm:py-10"
-                  >
-                    <p className="font-serif text-[clamp(2rem,5vw,3.25rem)] italic leading-[1.02] tracking-[-0.025em] text-copy">
-                      {block.text}
-                    </p>
-                  </blockquote>
-                );
             }
           })}
         </div>

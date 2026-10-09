@@ -1,8 +1,8 @@
 import { Container } from "@/components/layout/container";
-import type { StructuralArticle } from "@/components/news/article-content";
+import type { NewsArticle } from "@/lib/news/articles";
 
 type ArticleHeaderProps = Readonly<{
-  article: StructuralArticle;
+  article: NewsArticle;
 }>;
 
 export function ArticleHeader({ article }: ArticleHeaderProps) {
@@ -11,12 +11,10 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
       <Container className="relative z-10">
         <div className="grid gap-10 border-t border-divider/60 pt-7 sm:pt-9 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-9">
-            <p className="eyebrow mb-6 tracking-[0.24em]">
-              {article.eyebrow}
-            </p>
+            <p className="eyebrow mb-6 tracking-[0.24em]">News</p>
             <h1
               id="article-title"
-              className="max-w-[13ch] font-serif text-[clamp(3.5rem,8.5vw,7.5rem)] font-medium leading-[0.8] tracking-[-0.055em] text-copy"
+              className="max-w-[14ch] font-serif text-[clamp(3.25rem,7.5vw,6.75rem)] font-medium leading-[0.88] tracking-[-0.05em] text-copy"
             >
               {article.title}
             </h1>
@@ -24,11 +22,16 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
 
           <div className="lg:col-span-3 lg:pt-14">
             <p className="max-w-[38rem] text-base leading-8 text-copy sm:text-lg sm:leading-9">
-              {article.deck}
+              {article.excerpt}
             </p>
-            <p className="mt-7 border-l border-divider/80 pl-4 text-xs leading-6 text-copy-muted">
-              {article.status}
-            </p>
+            {article.publishedAt ? (
+              <time
+                dateTime={article.publishedAt}
+                className="mt-7 block border-l border-divider/80 pl-4 text-xs leading-6 text-copy-muted"
+              >
+                {article.publishedAt}
+              </time>
+            ) : null}
           </div>
         </div>
       </Container>

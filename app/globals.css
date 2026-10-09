@@ -624,8 +624,7 @@ video {
     linear-gradient(132deg, var(--color-bg), var(--color-bg-secondary) 88%);
 }
 
-.news-intro::before,
-.news-intro::after {
+.news-intro::before {
   position: absolute;
   z-index: -1;
   content: "";
@@ -642,17 +641,6 @@ video {
   background-size: 100% 4.75rem;
   opacity: 0.34;
   mask-image: linear-gradient(to right, transparent 5%, black 45%, transparent);
-}
-
-.news-intro::after {
-  top: 18%;
-  right: 8%;
-  width: min(28rem, 48vw);
-  height: 54%;
-  border-top: 1px solid
-    color-mix(in srgb, var(--color-gold) 14%, transparent);
-  border-right: 1px solid
-    color-mix(in srgb, var(--color-border) 56%, transparent);
 }
 
 .news-feature-section::before {

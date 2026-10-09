@@ -7,13 +7,13 @@ export function NewsIntro() {
   return (
     <section
       aria-labelledby="news-page-title"
-      className="news-intro relative isolate flex min-h-[34rem] items-end overflow-hidden pb-16 pt-32 sm:min-h-[38rem] sm:pb-20 sm:pt-36 lg:min-h-[42rem] lg:pb-24 lg:pt-40"
+      className="news-intro relative isolate overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32 lg:pb-24 lg:pt-36"
     >
       <Container className="relative z-10">
-        <div className="border-t border-divider/60 pt-7 sm:pt-9">
+        <div className="pt-7 sm:pt-9">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
-              <p className="eyebrow mb-6 tracking-[0.26em]">
+              <p className="eyebrow mb-8 tracking-[0.26em]">
                 {intro.eyebrow}
               </p>
               <h1
@@ -31,7 +31,7 @@ export function NewsIntro() {
               <div className="mt-7 flex items-center gap-4">
                 <span aria-hidden="true" className="h-px w-10 bg-accent/65" />
                 <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
-                  Editorial index · Visual shell
+                  Editorial index
                 </p>
               </div>
             </div>
