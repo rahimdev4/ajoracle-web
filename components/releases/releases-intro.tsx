@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Container } from "@/components/layout/container";
 import { releasesPageContent } from "@/components/releases/releases-content";
 
@@ -7,30 +9,42 @@ export function ReleasesIntro() {
   return (
     <section
       aria-labelledby="releases-page-title"
-      className="releases-intro relative isolate flex min-h-[38rem] items-end overflow-hidden pb-20 pt-32 sm:min-h-[42rem] sm:pb-24 sm:pt-36 lg:min-h-[46rem] lg:pb-28 lg:pt-40"
+      className="relative isolate flex min-h-[27rem] items-center overflow-hidden pb-16 pt-28 sm:min-h-[29rem] sm:pb-20 sm:pt-32 lg:min-h-[30rem] lg:pb-20 lg:pt-32"
     >
-      <Container className="relative z-10 grid items-end gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <div className="mb-6 flex items-center gap-4">
-            <p className="eyebrow tracking-[0.26em]">
-              {intro.eyebrow}
-            </p>
-            <span aria-hidden="true" className="h-px w-12 bg-accent/65 sm:w-20" />
+      <Image
+        src={intro.background.src}
+        alt={intro.background.alt}
+        fill
+        priority
+        sizes="100vw"
+        className="-z-30 object-cover object-[62%_center] sm:object-[68%_center] lg:object-[72%_center]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(5,6,8,0.97)_0%,rgba(5,6,8,0.85)_38%,rgba(5,6,8,0.32)_67%,rgba(5,6,8,0.08)_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(5,6,8,0.42)_0%,rgba(5,6,8,0.06)_42%,#07080b_100%)]"
+      />
+
+      <Container className="relative z-10">
+        <div className="max-w-[44rem]">
+          <div className="mb-4 flex items-center gap-4 sm:mb-5">
+            <p className="eyebrow tracking-[0.26em]">{intro.eyebrow}</p>
+            <span
+              aria-hidden="true"
+              className="h-px w-14 bg-accent/70 sm:w-24"
+            />
           </div>
           <h1
             id="releases-page-title"
-            className="max-w-[10ch] font-serif text-[clamp(4.25rem,11vw,8.5rem)] font-medium leading-[0.75] tracking-[-0.06em] text-copy"
+            className="max-w-[8ch] font-serif text-[clamp(4.5rem,10vw,8.75rem)] font-medium leading-[0.72] tracking-[-0.06em] text-copy"
           >
-            Latest <span className="text-accent-highlight italic">Releases</span>
+            Latest <span className="text-accent-highlight">Releases</span>
           </h1>
-        </div>
-
-        <div className="border-l border-divider/80 pl-5 lg:col-span-3 lg:col-start-10 lg:mb-2 lg:pl-7">
-          <p className="max-w-[30rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
+          <p className="mt-7 max-w-[30rem] text-base leading-7 text-copy-muted sm:mt-8 sm:text-lg sm:leading-8">
             {intro.description}
-          </p>
-          <p className="mt-7 text-[0.625rem] font-semibold uppercase tracking-[0.22em] text-copy-muted">
-            Curated catalog · Visual shell
           </p>
         </div>
       </Container>

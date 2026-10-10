@@ -1,8 +1,13 @@
-type ReleaseSlot = Readonly<{
+export type ReleaseArtwork = Readonly<{
+  src: `/images/${string}`;
+  alt: string;
+}>;
+
+export type CatalogRelease = Readonly<{
   id: string;
-  position: string;
-  label: string;
-  status: string;
+  title: string;
+  artist: "AJOracle";
+  artwork: ReleaseArtwork;
 }>;
 
 type ReleasesPageContent = Readonly<{
@@ -10,68 +15,84 @@ type ReleasesPageContent = Readonly<{
     eyebrow: string;
     title: string;
     description: string;
+    background: ReleaseArtwork;
   };
-  featured: {
+  featured: CatalogRelease & {
     eyebrow: string;
-    title: string;
     description: string;
-    artworkLabel: string;
-    availability: string;
+    platformLabel: string;
   };
   collection: {
     eyebrow: string;
     title: string;
-    description: string;
-    slots: readonly ReleaseSlot[];
+    releases: readonly CatalogRelease[];
   };
 }>;
 
-// Releases V1 visual-shell content only. Every catalog-dependent field is
-// explicitly marked as pending until approved CMS content is connected.
+// Static production content boundary. Presentation components consume this
+// shape so a future CMS-backed query can replace it without changing layouts.
 export const releasesPageContent = {
   intro: {
     eyebrow: "AJOracle Music",
     title: "Latest Releases",
-    description:
-      "An artwork-led home for AJOracle music, designed for calm discovery and clear listening destinations.",
+    description: "Explore AJOracle's latest music.",
+    background: {
+      src: "/images/releases/latest-releases-hero-background.webp",
+      alt: "",
+    },
   },
   featured: {
+    id: "prayer",
     eyebrow: "Featured Release",
-    title: "Approved release title pending",
+    title: "Prayer",
+    artist: "AJOracle",
+    artwork: {
+      src: "/images/home/latest-release/prayer.webp",
+      alt: "Prayer by AJOracle release artwork",
+    },
     description:
-      "Approved artwork, release context, and listening destinations will complete this feature when the catalog is connected.",
-    artworkLabel: "Featured release artwork",
-    availability: "Listening destinations pending confirmation",
+      "A song of faith, surrender, and hope. Prayer is a reminder that even in the quiet moments, we are never alone.",
+    platformLabel: "Find AJOracle on",
   },
   collection: {
     eyebrow: "The Collection",
-    title: "Music, presented with space to resonate",
-    description:
-      "These structural positions establish the catalog rhythm without inventing release names, dates, or platform links.",
-    slots: [
+    title: "Explore the Music",
+    releases: [
       {
-        id: "release-slot-01",
-        position: "01",
-        label: "Release position 01",
-        status: "Approved title and artwork pending",
+        id: "i-am-that-i-am",
+        title: "I Am That I Am",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/releases/i-am-that-i-am.webp",
+          alt: "I Am That I Am by AJOracle release artwork",
+        },
       },
       {
-        id: "release-slot-02",
-        position: "02",
-        label: "Release position 02",
-        status: "Approved title and artwork pending",
+        id: "provision-in-the-wilderness",
+        title: "Provision in the Wilderness",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/releases/provision-in-the-wilderness.webp",
+          alt: "Provision in the Wilderness by AJOracle release artwork",
+        },
       },
       {
-        id: "release-slot-03",
-        position: "03",
-        label: "Release position 03",
-        status: "Approved title and artwork pending",
+        id: "christmas-of-love",
+        title: "Christmas of Love",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/releases/christmas-of-love.webp",
+          alt: "Christmas of Love by AJOracle release artwork",
+        },
       },
       {
-        id: "release-slot-04",
-        position: "04",
-        label: "Release position 04",
-        status: "Approved title and artwork pending",
+        id: "our-father-in-heaven",
+        title: "Our Father in Heaven",
+        artist: "AJOracle",
+        artwork: {
+          src: "/images/releases/our-father-in-heaven.webp",
+          alt: "Our Father in Heaven by AJOracle release artwork",
+        },
       },
     ],
   },
