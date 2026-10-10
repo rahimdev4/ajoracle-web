@@ -19,13 +19,13 @@ export function Footer() {
             AJOracle
           </Link>
 
-          <nav aria-label="Footer navigation">
-            <ul className="flex max-w-2xl flex-wrap gap-x-6 gap-y-3 md:justify-end">
+          <nav aria-label="Footer navigation" className="w-full md:w-auto">
+            <ul className="grid w-full grid-cols-3 gap-x-3 gap-y-1 md:flex md:max-w-2xl md:flex-wrap md:justify-end md:gap-x-6 md:gap-y-3">
               {navigationItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="inline-flex min-h-11 items-center text-xs font-medium text-copy-muted transition-colors duration-300 hover:text-copy"
+                    className="inline-flex min-h-12 w-full items-center text-xs font-medium text-copy-muted transition-colors duration-300 hover:text-copy md:min-h-11 md:w-auto"
                   >
                     {item.label}
                   </Link>

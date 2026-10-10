@@ -11,7 +11,7 @@ export function FooterContactCallout() {
   }
 
   return (
-    <div className="grid gap-8 py-20 sm:py-24 lg:grid-cols-12 lg:items-end lg:py-28">
+    <div className="grid gap-8 py-16 sm:py-20 lg:grid-cols-12 lg:items-end lg:py-24">
       <div className="lg:col-span-8">
         <p className="eyebrow mb-5 tracking-[0.24em]">
           Contact
