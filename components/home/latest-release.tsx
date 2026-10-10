@@ -5,6 +5,8 @@ import { homepageContent } from "@/components/home/homepage-content";
 import { ReleaseAudioPlayer } from "@/components/home/release-audio-player";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
+import { ExternalPlatformLinks } from "@/components/platforms/external-platform-links";
+import { musicPlatforms } from "@/lib/external-platforms";
 
 export function LatestRelease() {
   const { latestRelease } = homepageContent;
@@ -41,6 +43,12 @@ export function LatestRelease() {
             </p>
 
             <ReleaseAudioPlayer releaseTitle={latestRelease.title} />
+
+            <ExternalPlatformLinks
+              label="Find AJOracle on"
+              platforms={musicPlatforms}
+              className="mt-5 max-w-[32rem] sm:mt-7"
+            />
 
             <Link
               href={latestRelease.action.href}
