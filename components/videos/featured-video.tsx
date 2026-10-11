@@ -1,61 +1,48 @@
-import { MediaPlaceholder } from "@/components/home/media-placeholder";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { VideoPlayer } from "@/components/videos/video-player";
 import { videosPageContent } from "@/components/videos/videos-content";
+import { WatchOnYoutubeLink } from "@/components/videos/watch-on-youtube-link";
 
 export function FeaturedVideo() {
   const { featured } = videosPageContent;
 
   return (
-    <Section
+    <section
       aria-labelledby="videos-featured-title"
-      className="videos-feature-section relative isolate overflow-hidden bg-page-secondary/45"
+      className="bg-page pb-16 sm:pb-24"
     >
-      <Container className="relative z-10">
-        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <div className="mb-5 flex items-center gap-4">
-              <p className="eyebrow tracking-[0.24em]">
-                {featured.eyebrow}
-              </p>
-              <span aria-hidden="true" className="h-px w-12 bg-accent/65 sm:w-20" />
-            </div>
-            <h2
-              id="videos-featured-title"
-              className="max-w-[14ch] font-serif text-[clamp(3.25rem,6vw,5.5rem)] font-medium leading-[0.86] tracking-[-0.04em] text-copy"
-            >
-              {featured.title}
-            </h2>
-          </div>
-          <p className="max-w-[34rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8 lg:col-span-4 lg:justify-self-end">
-            {featured.description}
-          </p>
-        </div>
-
-        <div className="relative border-y border-divider/60 py-4 sm:py-6">
-          <MediaPlaceholder
-            tone="video"
-            label={featured.posterLabel}
-            detail="Approved widescreen poster or selected frame pending."
-            className="aspect-video w-full"
+      <Container>
+        <div className="flex items-center gap-4">
+          <p className="eyebrow tracking-[0.24em]">{featured.eyebrow}</p>
+          <span
+            aria-hidden="true"
+            className="h-px w-14 bg-accent/65 sm:w-20"
           />
-          <span className="absolute right-7 top-9 z-20 bg-page/80 px-3 py-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted backdrop-blur-sm sm:right-9 sm:top-11">
-            Playback unavailable
-          </span>
         </div>
 
-        <div className="mt-7 grid gap-4 sm:grid-cols-2 sm:items-start">
-          <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
-            16:9 featured media position
+        <VideoPlayer
+          className="mt-6 rounded-md sm:mt-8 sm:rounded-lg"
+          title={featured.title}
+          poster={featured.poster}
+          videoId={featured.videoId}
+          sizes="(min-width: 1280px) 1230px, (min-width: 640px) calc(100vw - 3.5rem), calc(100vw - 2.5rem)"
+        />
+
+        <div className="mt-5 max-w-[58rem] sm:mt-6">
+          <h2
+            id="videos-featured-title"
+            className="font-serif text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[0.96] tracking-[-0.035em] text-copy"
+          >
+            {featured.title}
+          </h2>
+          <p className="mt-3 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
+            By {featured.artist}
           </p>
-          <div className="sm:justify-self-end sm:text-right">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-copy-muted">
-              Availability
-            </p>
-            <p className="mt-2 text-sm text-copy">{featured.availability}</p>
+          <div className="mt-4">
+            <WatchOnYoutubeLink href={featured.youtubeUrl} />
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }

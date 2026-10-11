@@ -7,29 +7,24 @@ export function VideosIntro() {
   return (
     <section
       aria-labelledby="videos-page-title"
-      className="videos-intro relative isolate flex min-h-[36rem] items-center overflow-hidden pb-20 pt-32 sm:min-h-[40rem] sm:pb-24 sm:pt-36 lg:min-h-[44rem] lg:pb-28 lg:pt-40"
+      className="bg-page pb-12 pt-32 sm:pb-14 sm:pt-36 lg:pb-16 lg:pt-40"
     >
-      <Container className="relative z-10 grid gap-12 lg:grid-cols-12 lg:items-end">
-        <div className="lg:col-span-7">
-          <p className="eyebrow mb-6 tracking-[0.26em]">
-            {intro.eyebrow}
-          </p>
+      <Container>
+        <div className="border-b border-divider/60 pb-10 sm:pb-12">
+          <div className="flex items-center gap-4">
+            <p className="eyebrow tracking-[0.26em]">{intro.eyebrow}</p>
+            <span
+              aria-hidden="true"
+              className="h-px w-14 bg-accent/70 sm:w-20"
+            />
+          </div>
           <h1
             id="videos-page-title"
-            className="font-serif text-[clamp(5rem,14vw,10rem)] font-medium leading-[0.7] tracking-[-0.065em] text-copy"
+            className="mt-7 font-serif text-[clamp(4.5rem,11vw,7.5rem)] font-medium leading-[0.8] tracking-[-0.06em] text-copy sm:mt-8"
           >
-            Videos
+            {intro.title}
           </h1>
-        </div>
-
-        <div className="lg:col-span-4 lg:col-start-9 lg:pb-1">
-          <div className="mb-6 flex items-center gap-4">
-            <span aria-hidden="true" className="h-px w-12 bg-accent/65" />
-            <p className="text-[0.625rem] font-semibold uppercase tracking-[0.22em] text-copy-muted">
-              Moving image · Visual shell
-            </p>
-          </div>
-          <p className="max-w-[32rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
+          <p className="mt-4 max-w-[42rem] text-base leading-7 text-copy-muted sm:text-lg sm:leading-8">
             {intro.description}
           </p>
         </div>

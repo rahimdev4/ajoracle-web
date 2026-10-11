@@ -1,86 +1,56 @@
-import { MediaPlaceholder } from "@/components/home/media-placeholder";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { VideoPlayer } from "@/components/videos/video-player";
 import { videosPageContent } from "@/components/videos/videos-content";
-
-const videoLayouts = [
-  {
-    media: "lg:col-span-8",
-    copy: "lg:col-span-3 lg:col-start-10",
-  },
-  {
-    media: "lg:col-span-7 lg:col-start-6",
-    copy: "lg:col-span-4 lg:col-start-1 lg:row-start-1",
-  },
-  {
-    media: "lg:col-span-9",
-    copy: "lg:col-span-3 lg:col-start-10",
-  },
-] as const;
+import { WatchOnYoutubeLink } from "@/components/videos/watch-on-youtube-link";
 
 export function VideoCollection() {
   const { collection } = videosPageContent;
 
   return (
-    <Section
+    <section
       aria-labelledby="video-collection-title"
-      className="video-collection-section relative isolate overflow-hidden"
+      className="bg-page pb-16 sm:pb-20 lg:pb-24"
     >
-      <Container className="relative z-10">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <p className="eyebrow mb-5 tracking-[0.24em]">
-              {collection.eyebrow}
-            </p>
-            <h2
-              id="video-collection-title"
-              className="max-w-[14ch] font-serif text-[clamp(3rem,6vw,5rem)] font-medium leading-[0.88] tracking-[-0.04em] text-copy"
-            >
-              {collection.title}
-            </h2>
-          </div>
-          <p className="max-w-[34rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8 lg:col-span-4 lg:col-start-9">
-            {collection.description}
-          </p>
+      <Container>
+        <div className="flex items-center gap-4 border-t border-divider/60 pt-10 sm:pt-12">
+          <h2
+            id="video-collection-title"
+            className="eyebrow tracking-[0.24em]"
+          >
+            {collection.title}
+          </h2>
+          <span
+            aria-hidden="true"
+            className="h-px w-14 bg-accent/65 sm:w-20"
+          />
         </div>
 
-        <ol className="mt-16 divide-y divide-divider/60 border-y border-divider/60 sm:mt-20 lg:mt-24">
-          {collection.slots.map((video, index) => {
-            const layout = videoLayouts[index % videoLayouts.length];
+        <ol className="mt-10 grid gap-x-8 gap-y-14 md:grid-cols-2 md:gap-y-16 lg:mt-12 lg:gap-x-10 lg:gap-y-20">
+          {collection.videos.map((video) => (
+            <li key={video.id}>
+              <article>
+                <VideoPlayer
+                  className="rounded-md sm:rounded-lg"
+                  title={video.title}
+                  poster={video.poster}
+                  videoId={video.videoId}
+                  sizes="(min-width: 1280px) 595px, (min-width: 768px) calc(50vw - 3rem), calc(100vw - 2.5rem)"
+                />
 
-            return (
-              <li
-                key={video.id}
-                className="grid gap-7 py-14 first:pt-8 last:pb-8 sm:gap-9 sm:py-20 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-28"
-              >
-                <div className={layout.media}>
-                  <MediaPlaceholder
-                    tone="video"
-                    label={`${video.label} poster`}
-                    detail="Approved 16:9 poster or selected frame pending."
-                    className="aspect-video w-full"
-                  />
+                <h3 className="mt-5 max-w-[24ch] font-serif text-[clamp(1.625rem,2.5vw,2.125rem)] font-medium leading-[1.05] tracking-[-0.025em] text-copy">
+                  {video.title}
+                </h3>
+                <p className="mt-2 text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
+                  By {video.artist}
+                </p>
+                <div className="mt-3">
+                  <WatchOnYoutubeLink href={video.youtubeUrl} />
                 </div>
-
-                <div className={layout.copy}>
-                  <p className="text-xs font-semibold tracking-[0.18em] text-accent-highlight">
-                    {video.position}
-                  </p>
-                  <h3 className="mt-4 max-w-[15ch] font-serif text-[clamp(2rem,4vw,3rem)] leading-[0.95] tracking-[-0.025em] text-copy">
-                    {video.label}
-                  </h3>
-                  <p className="mt-4 text-xs leading-6 text-copy-muted">
-                    {video.status}
-                  </p>
-                  <p className="mt-6 border-t border-divider/60 pt-4 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
-                    Viewing destination pending
-                  </p>
-                </div>
-              </li>
-            );
-          })}
+              </article>
+            </li>
+          ))}
         </ol>
       </Container>
-    </Section>
+    </section>
   );
 }
