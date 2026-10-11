@@ -1,140 +1,225 @@
+"use client";
+
+import Image from "next/image";
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
+
+import { submitContactForm } from "@/app/contact/actions";
 import { contactPageContent } from "@/components/contact/contact-content";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import type { ContactActionState, ContactField } from "@/lib/contact/types";
 
-export function ContactForm() {
-  const { composition, form } = contactPageContent;
+const initialState: ContactActionState = {
+  status: "idle",
+  message: "",
+};
+
+function SubmitButton({ label }: Readonly<{ label: string }>) {
+  const { pending } = useFormStatus();
 
   return (
-    <Section
-      aria-labelledby="contact-composition-title"
-      className="contact-main-section relative isolate overflow-hidden"
+    <button
+      type="submit"
+      disabled={pending}
+      className="group inline-flex min-h-13 w-full items-center justify-center gap-4 rounded-sm bg-accent px-6 py-3.5 text-sm font-bold text-page transition-colors duration-300 hover:bg-accent-highlight disabled:cursor-wait disabled:bg-accent/60 disabled:text-page/75"
     >
-      <Container className="relative z-10 grid gap-16 lg:grid-cols-12 lg:gap-10 xl:gap-16">
-        <div className="lg:col-span-5 lg:pt-10">
-          <p className="eyebrow mb-5 tracking-[0.24em]">
-            {composition.eyebrow}
-          </p>
-          <h2
-            id="contact-composition-title"
-            className="max-w-[11ch] font-serif text-[clamp(3.25rem,6vw,5.5rem)] font-medium leading-[0.87] tracking-[-0.04em] text-copy"
-          >
-            {composition.title}
-          </h2>
-          <p className="mt-7 max-w-[34rem] text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
-            {composition.description}
-          </p>
+      {pending ? "Sending…" : label}
+      <span
+        aria-hidden="true"
+        className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+      >
+        →
+      </span>
+    </button>
+  );
+}
 
-          <div className="mt-12 max-w-md border-t border-divider/60 pt-6">
-            <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-copy-muted">
-              Content status
-            </p>
-            <p className="mt-3 text-xs leading-6 text-copy-muted">
-              {composition.contentStatus}
-            </p>
+function FieldError({
+  field,
+  state,
+}: Readonly<{ field: ContactField; state: ContactActionState }>) {
+  const message = state.fieldErrors?.[field];
+
+  if (!message) {
+    return null;
+  }
+
+  return (
+    <p id={`contact-${field}-error`} className="mt-2 text-sm text-danger">
+      {message}
+    </p>
+  );
+}
+
+export function ContactForm() {
+  const { form } = contactPageContent;
+  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
+
+  return (
+    <section
+      aria-labelledby="contact-form-title"
+      className="bg-page pb-20 pt-2 sm:pb-24 lg:pb-28 lg:pt-4"
+    >
+      <Container>
+        <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-10 xl:gap-12">
+          <div className="relative isolate aspect-square min-w-0 w-full max-w-full overflow-hidden rounded-md border border-divider/80 bg-panel">
+            <Image
+              src="/images/contact/contact-pag-img.webp"
+              alt="AJOracle seated in a recording studio beside a microphone"
+              fill
+              sizes="(min-width: 1280px) 610px, (min-width: 1024px) 48vw, calc(100vw - 2.5rem)"
+              className="size-full max-w-full object-contain"
+              priority
+            />
           </div>
-        </div>
 
-        <div className="contact-form-shell lg:col-span-6 lg:col-start-7">
-          <form
-            aria-labelledby="contact-form-title"
-            aria-describedby="contact-form-description contact-form-status"
-          >
-            <div className="border-b border-divider/70 pb-8 sm:pb-10">
-              <p className="eyebrow mb-4 tracking-[0.22em]">
-                {form.eyebrow}
-              </p>
-              <h3
+          <div className="min-w-0 w-full max-w-full rounded-md border border-divider/80 bg-page-secondary/30 p-5 sm:p-7 lg:p-8 xl:p-10">
+            <div className="border-b border-divider/70 pb-6 sm:pb-7">
+              <h2
                 id="contact-form-title"
-                className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-medium leading-[0.9] tracking-[-0.035em] text-copy"
+                className="font-serif text-[clamp(2.5rem,4.5vw,3.75rem)] font-medium leading-[0.9] tracking-[-0.035em] text-copy"
               >
                 {form.title}
-              </h3>
+              </h2>
               <p
                 id="contact-form-description"
-                className="mt-5 max-w-[36rem] text-sm leading-7 text-copy-muted"
+                className="mt-4 max-w-[36rem] text-sm leading-7 text-copy-muted"
               >
                 {form.description}
               </p>
             </div>
 
-            <div className="contact-form-field">
-              <label className="contact-form-label" htmlFor="contact-name">
-                Name
-                <span aria-hidden="true" className="text-accent-highlight">
-                  *
-                </span>
-                <span className="sr-only"> (required)</span>
-              </label>
-              <input
-                className="contact-form-control"
-                id="contact-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                required
-              />
-            </div>
-
-            <div className="contact-form-field">
-              <label className="contact-form-label" htmlFor="contact-email">
-                Email
-                <span aria-hidden="true" className="text-accent-highlight">
-                  *
-                </span>
-                <span className="sr-only"> (required)</span>
-              </label>
-              <input
-                className="contact-form-control"
-                id="contact-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-              />
-            </div>
-
-            <div className="contact-form-field">
-              <label className="contact-form-label" htmlFor="contact-message">
-                Message
-                <span aria-hidden="true" className="text-accent-highlight">
-                  *
-                </span>
-                <span className="sr-only"> (required)</span>
-              </label>
-              <textarea
-                className="contact-form-control contact-form-message"
-                id="contact-message"
-                name="message"
-                rows={7}
-                required
-              />
-            </div>
-
-            <div className="flex flex-col gap-5 border-t border-divider/70 pt-8 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-              <button
-                type="submit"
-                disabled
-                aria-describedby="contact-form-status"
-                className="inline-flex min-h-12 shrink-0 items-center justify-center gap-4 bg-accent px-6 py-3 text-sm font-bold text-page disabled:cursor-not-allowed disabled:bg-accent/55 disabled:text-page/80"
+            <form
+              ref={formRef}
+              action={formAction}
+              aria-describedby="contact-form-description contact-form-status"
+              noValidate={false}
+              className="pt-6 sm:pt-7"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute left-[-10000px] top-auto size-px overflow-hidden"
               >
-                {form.submitLabel}
-                <span aria-hidden="true">→</span>
-              </button>
+                <label htmlFor="contact-website">Website</label>
+                <input
+                  id="contact-website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              <div className="space-y-5 sm:space-y-6">
+                <div>
+                  <label className="contact-form-label" htmlFor="contact-name">
+                    Name
+                    <span aria-hidden="true" className="text-accent-highlight">
+                      *
+                    </span>
+                    <span className="sr-only"> (required)</span>
+                  </label>
+                  <input
+                    className="contact-form-control"
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    placeholder="Your name"
+                    minLength={2}
+                    maxLength={100}
+                    required
+                    aria-invalid={Boolean(state.fieldErrors?.name)}
+                    aria-describedby={
+                      state.fieldErrors?.name ? "contact-name-error" : undefined
+                    }
+                  />
+                  <FieldError field="name" state={state} />
+                </div>
+
+                <div>
+                  <label className="contact-form-label" htmlFor="contact-email">
+                    Email
+                    <span aria-hidden="true" className="text-accent-highlight">
+                      *
+                    </span>
+                    <span className="sr-only"> (required)</span>
+                  </label>
+                  <input
+                    className="contact-form-control"
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    maxLength={254}
+                    required
+                    aria-invalid={Boolean(state.fieldErrors?.email)}
+                    aria-describedby={
+                      state.fieldErrors?.email ? "contact-email-error" : undefined
+                    }
+                  />
+                  <FieldError field="email" state={state} />
+                </div>
+
+                <div>
+                  <label className="contact-form-label" htmlFor="contact-message">
+                    Message
+                    <span aria-hidden="true" className="text-accent-highlight">
+                      *
+                    </span>
+                    <span className="sr-only"> (required)</span>
+                  </label>
+                  <textarea
+                    className="contact-form-control contact-form-message"
+                    id="contact-message"
+                    name="message"
+                    rows={6}
+                    placeholder="Share your message, idea, or inquiry…"
+                    minLength={10}
+                    maxLength={5000}
+                    required
+                    aria-invalid={Boolean(state.fieldErrors?.message)}
+                    aria-describedby={
+                      state.fieldErrors?.message
+                        ? "contact-message-error"
+                        : undefined
+                    }
+                  />
+                  <FieldError field="message" state={state} />
+                </div>
+              </div>
+
+              <div className="mt-7">
+                <SubmitButton label={form.submitLabel} />
+              </div>
 
               <p
                 id="contact-form-status"
-                className="max-w-sm text-xs leading-6 text-copy-muted sm:text-right"
+                role="status"
+                aria-live="polite"
+                className={`mt-4 min-h-6 text-sm leading-6 ${
+                  state.status === "success"
+                    ? "text-positive"
+                    : state.status === "error"
+                      ? "text-danger"
+                      : "text-copy-muted"
+                }`}
               >
-                <span className="block font-semibold uppercase tracking-[0.16em] text-copy">
-                  {form.statusLabel}
-                </span>
-                <span className="mt-1 block">{form.statusDescription}</span>
+                {state.message}
               </p>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }

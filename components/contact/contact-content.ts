@@ -3,48 +3,26 @@ type ContactPageContent = Readonly<{
     eyebrow: string;
     title: string;
     description: string;
-  };
-  composition: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    contentStatus: string;
+    email: string;
   };
   form: {
-    eyebrow: string;
     title: string;
     description: string;
     submitLabel: string;
-    statusLabel: string;
-    statusDescription: string;
   };
 }>;
 
-// Contact V1 visual-shell copy only. No contact address, social destination,
-// delivery provider, or response-time promise has been assumed.
 export const contactPageContent = {
   intro: {
-    eyebrow: "AJOracle Correspondence",
-    title: "Contact",
+    eyebrow: "Contact",
+    title: "Get in Touch",
     description:
-      "A quiet editorial space for future correspondence with AJOracle.",
-  },
-  composition: {
-    eyebrow: "A Place to Write",
-    title: "A simple way to begin",
-    description:
-      "This structural pass establishes a calm path for a name, email address, and message. Final contact copy will follow client review.",
-    contentStatus:
-      "No approved direct contact details or social destinations are available locally, so none are displayed here.",
+      "Let's connect and create something meaningful together. I'm always open to new conversations, collaborations, and opportunities.",
+    email: "contact@ajoracle.com",
   },
   form: {
-    eyebrow: "Message Form",
-    title: "Message details",
-    description:
-      "All three fields will connect to the approved secure delivery flow during functional integration.",
+    title: "Send a Message",
+    description: "Fill out the form and I'll get back to you as soon as possible.",
     submitLabel: "Send Message",
-    statusLabel: "Structural preview",
-    statusDescription:
-      "Submission is currently disabled. This form does not send or store messages yet.",
   },
 } as const satisfies ContactPageContent;

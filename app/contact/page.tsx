@@ -1,12 +1,19 @@
+import type { Metadata } from "next";
+
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactIntro } from "@/components/contact/contact-intro";
+
+export const metadata: Metadata = {
+  title: "Contact AJOracle",
+  description:
+    "Connect with AJOracle for conversations, collaborations, and opportunities.",
+};
 
 export default function ContactPage() {
   return (
     <main id="main-content" tabIndex={-1}>
       <ContactIntro />
       <ContactForm />
-      <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );
 }
