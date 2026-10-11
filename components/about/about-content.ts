@@ -1,9 +1,13 @@
+type AboutImage = Readonly<{
+  src: `/${string}`;
+  alt: string;
+}>;
+
 type AboutNarrative = Readonly<{
   eyebrow: string;
   title: string;
   paragraphs: readonly string[];
-  mediaLabel: string;
-  mediaDetail: string;
+  image: AboutImage;
 }>;
 
 type AboutPageContent = Readonly<{
@@ -11,72 +15,63 @@ type AboutPageContent = Readonly<{
     eyebrow: string;
     title: string;
     description: string;
-    status: string;
-    mediaLabel: string;
-    mediaDetail: string;
   };
   artistStory: AboutNarrative;
-  creativePerspective: AboutNarrative;
-  legacy: AboutNarrative;
-  closing: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    status: string;
+  memorial: AboutNarrative;
+  familyLegacy: AboutNarrative & {
+    closingLines: readonly string[];
   };
 }>;
 
-// About V1 visual-shell content only. Biography, personal history, quotations,
-// and photography remain explicitly pending until reviewed material is approved.
+// Existing public-site copy, retained as a small website-owned content boundary
+// and pending final client approval. The duplicated memorial paragraph from the
+// legacy page is intentionally not repeated in the family section.
 export const aboutPageContent = {
   intro: {
-    eyebrow: "AJOracle Story",
-    title: "About",
+    eyebrow: "About",
+    title: "About AJOracle",
     description:
-      "A photographic editorial framework for AJOracle's approved story, creative perspective, and legacy.",
-    status: "Approved introduction and portrait pending client review",
-    mediaLabel: "AJOracle portrait",
-    mediaDetail:
-      "Approved artist photography will replace this portrait frame.",
+      "A singer, songwriter, and storyteller using music to inspire awareness, empathy, and meaningful conversation.",
   },
   artistStory: {
-    eyebrow: "The Story",
-    title: "Approved artist narrative pending",
+    eyebrow: "The Artist",
+    title: "The Story Behind the Voice",
     paragraphs: [
-      "This position is reserved for the reviewed account of AJOracle's story and artist identity. No biographical details have been assumed for this structural pass.",
-      "The final narrative will be shaped from approved source material before publication.",
+      "AJ Oracle is a singer-songwriter and storyteller whose work explores humanity, purpose, and connection through music and advocacy.",
+      "Rooted in faith and Akan heritage, she bridges creativity, culture, and community as a human-rights activist, founder, and mother.",
     ],
-    mediaLabel: "Artist story photography",
-    mediaDetail:
-      "Approved landscape photography will support the primary narrative.",
+    image: {
+      src: "/images/about/artist-story.webp",
+      alt: "AJOracle writing in a notebook",
+    },
   },
-  creativePerspective: {
-    eyebrow: "Creative Life",
-    title: "Approved creative perspective pending",
+  memorial: {
+    eyebrow: "In Loving Memory",
+    title: "In Loving Memory of My Brother, Alfred",
     paragraphs: [
-      "This alternating composition is designed for approved writing about music, faith, heritage, purpose, or other reviewed themes that belong in AJOracle's story.",
-      "Only client-approved perspective and source material will replace this placeholder copy.",
+      "My brother Alfred is the reason AJ Oracle exists. Before the music, before the voice, before the purpose, there was my brother. He stood beside me in seasons when life was heavy and uncertain. His love, belief, and quiet strength carried me through moments that could have broken me.",
+      "Though he is no longer in this world, he has never left my life. I carry him in my prayers, in my work, and in the courage it takes to keep going. His memory is sacred to me. I honor him not in passing, but in everything I create. This space is dedicated to my brother alone, with reverence, gratitude, and eternal love.",
     ],
-    mediaLabel: "Creative portrait photography",
-    mediaDetail:
-      "A second approved artist image will create a quieter visual movement.",
+    image: {
+      src: "/images/about/alfred-tribute.webp",
+      alt: "AJOracle with her brother Alfred beneath an in loving memory inscription",
+    },
   },
-  legacy: {
-    eyebrow: "Legacy",
-    title: "Approved personal narrative pending",
+  familyLegacy: {
+    eyebrow: "Family, Love, and Legacy",
+    title: "Family, Love, and Legacy",
     paragraphs: [
-      "This wide editorial position is reserved for approved personal, family, legacy, or tribute material if retained after content review.",
-      "No names, relationships, memories, or quotations have been introduced.",
+      "My family is my heart. We are bound by love, faith, and shared history. This space honors the people who raised me, walked with me, and continue to stand beside me. Parents, siblings, children, relatives, and generations whose prayers and sacrifices made our lives possible.",
+      "Through joy and loss, through healing and endurance, our family remains connected. What was given to us in love is carried forward in how we live, how we care for one another, and how we honor those who came before us.",
     ],
-    mediaLabel: "Legacy story photography",
-    mediaDetail:
-      "Approved wide-format photography or archival material will be placed here.",
-  },
-  closing: {
-    eyebrow: "Closing Note",
-    title: "A final statement will follow content review",
-    description:
-      "This quiet closing position is reserved for an approved line that completes the page without inventing a quotation or personal claim.",
-    status: "Approved About copy pending",
+    closingLines: [
+      "This is family.",
+      "This is love that endures.",
+      "This is legacy.",
+    ],
+    image: {
+      src: "/images/about/family-legacy.webp",
+      alt: "AJOracle beside a young child in the snow",
+    },
   },
 } as const satisfies AboutPageContent;

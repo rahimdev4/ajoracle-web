@@ -1,17 +1,23 @@
-import { AboutClosing } from "@/components/about/about-closing";
+import type { Metadata } from "next";
+
 import { AboutIntro } from "@/components/about/about-intro";
 import { ArtistStory } from "@/components/about/artist-story";
-import { CreativePerspective } from "@/components/about/creative-perspective";
-import { LegacyStory } from "@/components/about/legacy-story";
+import { FamilyLegacy } from "@/components/about/family-legacy";
+import { MemorialTribute } from "@/components/about/memorial-tribute";
+
+export const metadata: Metadata = {
+  title: "About AJOracle",
+  description:
+    "A singer, songwriter, and storyteller using music to inspire awareness, empathy, and meaningful conversation.",
+};
 
 export default function AboutPage() {
   return (
     <main id="main-content" tabIndex={-1}>
       <AboutIntro />
       <ArtistStory />
-      <CreativePerspective />
-      <LegacyStory />
-      <AboutClosing />
+      <MemorialTribute />
+      <FamilyLegacy />
       <div aria-hidden="true" className="footer-transition h-24 sm:h-32" />
     </main>
   );

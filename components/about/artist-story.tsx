@@ -1,44 +1,42 @@
+import Image from "next/image";
+
 import { aboutPageContent } from "@/components/about/about-content";
-import { MediaPlaceholder } from "@/components/home/media-placeholder";
 import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
 
 export function ArtistStory() {
   const { artistStory } = aboutPageContent;
 
   return (
-    <Section
+    <section
       aria-labelledby="about-artist-story-title"
-      className="about-artist-story relative isolate overflow-hidden bg-page-secondary/35"
+      className="bg-page pt-2"
     >
-      <Container className="relative z-10">
-        <div className="mb-12 flex items-center justify-between gap-6 border-b border-divider/60 pb-5 sm:mb-16">
-          <p className="eyebrow tracking-[0.24em]">
-            {artistStory.eyebrow}
-          </p>
-          <p className="text-right text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-copy-muted">
-            Primary narrative position
-          </p>
-        </div>
-
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10 xl:gap-16">
-          <div className="lg:col-span-7">
-            <MediaPlaceholder
-              tone="editorial"
-              label={artistStory.mediaLabel}
-              detail={artistStory.mediaDetail}
-              className="aspect-[4/3] w-full sm:aspect-[5/4]"
+      <Container>
+        <div className="grid gap-10 border-b border-divider/60 pb-16 sm:gap-12 sm:pb-20 lg:grid-cols-12 lg:items-center lg:gap-12 lg:pb-24">
+          <div className="relative aspect-square overflow-hidden rounded-md bg-surface lg:col-span-6 xl:col-span-6">
+            <Image
+              src={artistStory.image.src}
+              alt={artistStory.image.alt}
+              fill
+              sizes="(min-width: 1280px) 610px, (min-width: 1024px) 48vw, calc(100vw - 2.5rem)"
+              className="object-cover"
             />
           </div>
 
-          <div className="lg:col-span-4 lg:col-start-9">
+          <div className="lg:col-span-5 lg:col-start-8">
+            <div className="flex items-center gap-4">
+              <p className="eyebrow tracking-[0.24em]">
+                {artistStory.eyebrow}
+              </p>
+              <span aria-hidden="true" className="h-px w-14 bg-accent/65" />
+            </div>
             <h2
               id="about-artist-story-title"
-              className="max-w-[12ch] font-serif text-[clamp(3rem,5.5vw,5rem)] font-medium leading-[0.88] tracking-[-0.04em] text-copy"
+              className="mt-5 max-w-[14ch] font-serif text-[clamp(2.75rem,5vw,4.5rem)] font-medium leading-[0.9] tracking-[-0.04em] text-copy"
             >
               {artistStory.title}
             </h2>
-            <div className="mt-7 space-y-5 text-sm leading-7 text-copy-muted sm:text-base sm:leading-8">
+            <div className="mt-7 max-w-[38rem] space-y-5 text-base leading-8 text-copy-muted">
               {artistStory.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -46,6 +44,6 @@ export function ArtistStory() {
           </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
