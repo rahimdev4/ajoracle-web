@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "About AJOracle",
   description:
     "A singer, songwriter, and storyteller using music to inspire awareness, empathy, and meaningful conversation.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

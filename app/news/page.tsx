@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
+
 import { FeaturedStory } from "@/components/news/featured-story";
 import { NewsIntro } from "@/components/news/news-intro";
 import { StoryCollection } from "@/components/news/story-collection";
 import { getNewsArticleListing } from "@/lib/news/articles";
+
+export const metadata: Metadata = {
+  title: "News | AJOracle",
+  description: "Stories, reflections, and news from AJOracle.",
+  alternates: {
+    canonical: "/news",
+  },
+};
 
 export default async function NewsPage() {
   const { featured, supporting } = await getNewsArticleListing();

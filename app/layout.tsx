@@ -20,22 +20,18 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const deploymentUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  process.env.VERCEL_PROJECT_PRODUCTION_URL ??
-  process.env.VERCEL_URL;
-
 const metadataBase = new URL(
-  deploymentUrl
-    ? deploymentUrl.startsWith("http")
-      ? deploymentUrl
-      : `https://${deploymentUrl}`
-    : "http://localhost:3000",
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://ajoracle.com",
 );
 
 export const metadata: Metadata = {
   metadataBase,
   title: "AJOracle",
+  description:
+    "The official AJOracle website for music, videos, stories, and artist news.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 type RootLayoutProps = Readonly<{

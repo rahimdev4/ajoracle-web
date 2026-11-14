@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
+
 import { FeaturedRelease } from "@/components/releases/featured-release";
 import { ReleaseCollection } from "@/components/releases/release-collection";
 import { ReleasesIntro } from "@/components/releases/releases-intro";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Latest Releases | AJOracle",
   description: "AJOracle music releases.",
+  alternates: {
+    canonical: "/releases",
+  },
 };
 
 export default function ReleasesPage() {

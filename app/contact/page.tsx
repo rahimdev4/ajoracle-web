@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Contact AJOracle",
   description:
     "Connect with AJOracle for conversations, collaborations, and opportunities.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {
