@@ -20,7 +20,21 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const deploymentUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+  process.env.VERCEL_URL;
+
+const metadataBase = new URL(
+  deploymentUrl
+    ? deploymentUrl.startsWith("http")
+      ? deploymentUrl
+      : `https://${deploymentUrl}`
+    : "http://localhost:3000",
+);
+
 export const metadata: Metadata = {
+  metadataBase,
   title: "AJOracle",
 };
 
