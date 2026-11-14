@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   agentRules: false,
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       {
