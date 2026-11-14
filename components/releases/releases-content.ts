@@ -76,24 +76,6 @@ export const releasesPageContent = {
           alt: "Provision in the Wilderness by AJOracle release artwork",
         },
       },
-      {
-        id: "christmas-of-love",
-        title: "Christmas of Love",
-        artist: "AJOracle",
-        artwork: {
-          src: "/images/releases/christmas-of-love.webp",
-          alt: "Christmas of Love by AJOracle release artwork",
-        },
-      },
-      {
-        id: "our-father-in-heaven",
-        title: "Our Father in Heaven",
-        artist: "AJOracle",
-        artwork: {
-          src: "/images/releases/our-father-in-heaven.webp",
-          alt: "Our Father in Heaven by AJOracle release artwork",
-        },
-      },
     ],
   },
 } as const satisfies ReleasesPageContent;
